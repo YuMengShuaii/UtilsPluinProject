@@ -1,5 +1,6 @@
-package com.enation.javashop.utils.base.other;
+package com.enation.javashop.utils.base.widget;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
@@ -17,6 +18,7 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 
 import com.enation.javashop.utils.base.R;
+import com.enation.javashop.utils.base.tool.BaseToolActivity;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
@@ -25,6 +27,7 @@ import java.util.List;
 
 /**
  * Created by LDD on 17/5/24.
+ * 滑动退出父视图
  */
 
 public class ScrollBackView extends FrameLayout {
@@ -399,7 +402,7 @@ public class ScrollBackView extends FrameLayout {
                 return 1;
             }
             // SwipeBackActivity
-            if (mActivity != null && ((UtilsActivity) mActivity).swipeBackPriority()) {
+            if (mActivity != null && ((BaseToolActivity) mActivity).swipeBackPriority()) {
                 return 1;
             }
             return 0;

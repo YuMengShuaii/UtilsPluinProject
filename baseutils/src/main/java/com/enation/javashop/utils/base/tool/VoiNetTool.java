@@ -1,4 +1,4 @@
-package com.enation.javashop.utils.base.other;
+package com.enation.javashop.utils.base.tool;
 
 import android.content.Context;
 import android.net.ConnectivityManager;
@@ -8,9 +8,10 @@ import android.net.NetworkInfo;
  * Created by LDD on 17/1/17.
  */
 
-public class VoiNetUtils {
+public class VoiNetTool {
     /* 网络状态 */
     public static boolean isNet = true;
+
     public static enum netType
     {
         wifi, CMNET, CMWAP, noneNet

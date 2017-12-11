@@ -7,12 +7,13 @@
     android:layout_height="fill_parent"
     xmlns:android="http://schemas.android.com/apk/res/android">
     <RelativeLayout android:gravity="center"
+                    android:id="@+id/background"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent">
         <ImageView android:id="@+id/img"
             android:layout_width="30.0dip"
             android:layout_height="30.0dip"
-            android:src="@drawable/load4" />
+            android:src="@drawable/load" />
         <TextView android:textSize="10.0sp"
             android:textColor="#ffcccccc"
             android:gravity="center"

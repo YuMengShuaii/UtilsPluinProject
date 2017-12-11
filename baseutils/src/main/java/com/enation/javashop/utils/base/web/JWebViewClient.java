@@ -13,8 +13,7 @@ public class JWebViewClient extends WebViewClient
 {
     private WebViewListener lis;
 
-    public JWebViewClient()
-    {
+    public JWebViewClient() {
     }
 
     public JWebViewClient(WebViewListener paramWebViewListener)
@@ -44,7 +43,7 @@ public class JWebViewClient extends WebViewClient
     public void onReceivedError(WebView paramWebView, int paramInt, String paramString1, String paramString2)
     {
         if (this.lis != null)
-            this.lis.over();
+            this.lis.error();
         paramWebView.getSettings().setDefaultTextEncodingName("UTF-8");
         paramWebView.loadDataWithBaseURL("", "<div style='padding-top:200px;text-align:center;color:#666;'>无网络，请打开网络下拉刷新！</div>", "text/html", "UTF-8", "");
         super.onReceivedError(paramWebView, paramInt, paramString1, paramString2);
@@ -53,12 +52,14 @@ public class JWebViewClient extends WebViewClient
     public void onReceivedHttpError(WebView paramWebView, WebResourceRequest paramWebResourceRequest, WebResourceResponse paramWebResourceResponse)
     {
         if (this.lis != null)
-            this.lis.over();
+            this.lis.error();
         super.onReceivedHttpError(paramWebView, paramWebResourceRequest, paramWebResourceResponse);
     }
 
     public void onReceivedSslError(WebView paramWebView, SslErrorHandler paramSslErrorHandler, SslError paramSslError)
     {
+        if (this.lis != null)
+            this.lis.error();
         paramSslErrorHandler.proceed();
     }
 
@@ -73,12 +74,12 @@ public class JWebViewClient extends WebViewClient
         return true;
     }
 
-    public static abstract interface WebViewListener
+    public interface WebViewListener
     {
-        public abstract void error();
+         void error();
 
-        public abstract void over();
+         void over();
 
-        public abstract void start();
+         void start();
     }
 }
