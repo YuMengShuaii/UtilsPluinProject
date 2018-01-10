@@ -26,13 +26,24 @@ public class MainActivity extends BaseToolActivity {
         findViewById(R.id.hello).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                dialog.show();
-                new Handler(getMainLooper()).postDelayed(new Runnable() {
+//                dialog.show();
+//                new Handler(getMainLooper()).postDelayed(new Runnable() {
+//                    @Override
+//                    public void run() {
+//                        dialog.dismiss();
+//                    }
+//                },5000);
+                CommonTool.createVerifyDialog("1111", "1111", "1111", activity, new CommonTool.DialogInterface() {
                     @Override
-                    public void run() {
-                        dialog.dismiss();
+                    public void no() {
+
                     }
-                },5000);
+
+                    @Override
+                    public void yes() {
+
+                    }
+                });
             }
         });
     }

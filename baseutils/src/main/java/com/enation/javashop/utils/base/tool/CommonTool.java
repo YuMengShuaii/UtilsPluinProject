@@ -61,14 +61,14 @@ public class CommonTool {
         ((TextView) localView.findViewById(R.id.message)).setText(message);
         yesTv.setOnClickListener(new View.OnClickListener() {
             public void onClick(View paramView) {
-                listener.yes();
                 dialog.dismiss();
+                listener.yes();
             }
         });
         noTv.setOnClickListener(new View.OnClickListener() {
             public void onClick(View paramView) {
-                listener.no();
                 dialog.dismiss();
+                listener.no();
             }
         });
         dialog.setCanceledOnTouchOutside(true);
