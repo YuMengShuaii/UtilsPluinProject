@@ -50,7 +50,7 @@ public class CommonTool {
      * @param context  上下文
      * @param listener 监听接口
      */
-    public static void createVerifyDialog(String message, String noHint, String yesHint, Context context, final DialogInterface listener) {
+    public static Dialog createVerifyDialog(String message, String noHint, String yesHint, Context context, final DialogInterface listener) {
         final Dialog dialog = new Dialog(context, R.style.Dialog);
         View localView = LayoutInflater.from(context).inflate(R.layout.newdialog_lay, null);
         dialog.setContentView(localView);
@@ -71,10 +71,9 @@ public class CommonTool {
                 listener.no();
             }
         });
-        dialog.setCanceledOnTouchOutside(true);
-        dialog.setCancelable(true);
-        if (!(dialog.isShowing()))
-            dialog.show();
+        dialog.setCanceledOnTouchOutside(false);
+        dialog.setCancelable(false);
+        return dialog;
     }
 
     public static LoadingDialog createLoadingDialog(Context context, int layoutid, int imageviewid) {
